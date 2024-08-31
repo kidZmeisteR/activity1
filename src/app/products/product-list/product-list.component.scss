@@ -1,0 +1,12 @@
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .product-card {
+    max-width: 300px;
+    margin: 1rem;
+  }
+  .product-filter {
+    margin: 1rem;
+  }

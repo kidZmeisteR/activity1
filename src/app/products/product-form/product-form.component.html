@@ -1,0 +1,17 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Title" formControlName="title">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Price" formControlName="price" type="number">
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Description" formControlName="description"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Image URL" formControlName="image">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Save</button>
+    <button mat-button (click)="goBack()">Cancel</button>
+  </form>
+  
