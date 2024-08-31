@@ -21,10 +21,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductFormComponent implements OnInit {
   productForm!: FormGroup;
-  private apiService = inject(ApiServiceService);
-  private fb = inject(FormBuilder);
-  private route = inject (ActivatedRoute);
-  private router = inject (Router);
+
+  constructor(private apiService: ApiServiceService, private fb: FormBuilder, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.productForm = this.fb.group({
@@ -51,7 +49,7 @@ export class ProductFormComponent implements OnInit {
         });
       } else {
         this.apiService.addProduct(this.productForm.value).subscribe(() => {
-          this.router.navigate(['/prodcuts']);
+          this.router.navigate(['/products']);
         });
       }
     }

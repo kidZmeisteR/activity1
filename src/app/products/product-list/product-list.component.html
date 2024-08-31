@@ -5,9 +5,10 @@
       </mat-form-field>
       <button mat-raised-button color="primary">Filter</button>
     </form>
-  </div>
-  <div class="product-list">
-    <mat-card *ngFor="let product of products" class="product-card">
+</div>
+<mat-grid-list cols="4" rowHeight="1:1.5" gutterSize="16px">
+  <mat-grid-tile *ngFor="let product of products">
+    <mat-card class="product-card">
       <mat-card-header>
         <mat-card-title>{{ product.title }}</mat-card-title>
         <mat-card-subtitle>${{ product.price }}</mat-card-subtitle>
@@ -22,5 +23,5 @@
         <button mat-button color="warn" (click)="deleteProduct(product.id)">Delete</button>
       </mat-card-actions>
     </mat-card>
-  </div>
-  
+  </mat-grid-tile>
+</mat-grid-list>

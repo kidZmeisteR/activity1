@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { ApiServiceService } from '../../services/api-service.service';
 import { Router } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { MatGridList, MatGridTile } from '@angular/material/grid-list';
 
 
 @Component({
@@ -20,7 +22,10 @@ import { Router } from '@angular/router';
     MatIconModule,
     RouterModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatGridList,
+    MatGridTile
   ],
   providers: [ApiServiceService],
   templateUrl: './product-list.component.html',
@@ -30,9 +35,7 @@ export class ProductListComponent implements OnInit{
   products: any[] = [];
   filterForm!: FormGroup;
 
-  private apiService = inject(ApiServiceService);
-  private fb = inject(FormBuilder);
-  constructor (private router: Router){}
+  constructor (private router: Router, private apiService: ApiServiceService, private fb: FormBuilder){}
 
   ngOnInit(): void {
     this.loadProducts();

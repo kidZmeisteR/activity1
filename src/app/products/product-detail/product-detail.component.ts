@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, Inject, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { ApiServiceService } from '../../services/api-service.service';
@@ -15,8 +15,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailComponent implements OnInit {
   product: any;
-  private apiService = inject(ApiServiceService);
-  private route = inject(ActivatedRoute);
+
+  constructor(@Inject(ApiServiceService)private apiService: ApiServiceService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
